@@ -28,14 +28,16 @@ public class RegisterNewUser implements Task {
                 Clear.field(INPUT_EMPLOYEE_ID).then(Enter.theValue("777").into(INPUT_EMPLOYEE_ID)),
                 Click.on(SWIPE_LOGIN_DETAILS),
                 WaitUntil.the(INPUT_USERNAME, isVisible()).
-                        forNoMoreThan(10).seconds().then( Enter.theValue("choutest").into(INPUT_USERNAME)),
+                        forNoMoreThan(10).seconds().then(Enter.theValue("choutest").into(INPUT_USERNAME)),
                 Enter.theValue("choutest123").into(INPUT_PASSWORD),
                 Enter.theValue("choutest123").into(INPUT_CONFIRM_PASSWORD),
                 Click.on(BUTTON_SAVE),
-                Click.on(BUTTON_EMPLOYEE_LIST),
-                Click.on(BUTTON_SUBMIT),
+                WaitUntil.the(ADVISE_SUCCEES, isVisible()).
+                        forNoMoreThan(10).seconds().then(Click.on(BUTTON_EMPLOYEE_LIST)),
                 WaitUntil.the(INPUT_EMPLOYEE_NAME, isVisible()).
-                        forNoMoreThan(10).seconds().then( Enter.theValue("choutest").into(INPUT_EMPLOYEE_NAME))
+                        forNoMoreThan(10).seconds().then(Enter.theValue("Choucair").into(INPUT_EMPLOYEE_NAME)),
+                Click.on(BUTTON_SUBMIT)
+
 
         );
     }

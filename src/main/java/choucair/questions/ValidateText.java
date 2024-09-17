@@ -4,6 +4,10 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;
 import net.serenitybdd.screenplay.questions.Text;
 import net.serenitybdd.screenplay.targets.Target;
+import net.serenitybdd.screenplay.waits.WaitUntil;
+
+import static choucair.userinterfaces.EmplyeeListUI.INPUT_EMPLOYEE_NAME;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
 public class ValidateText implements Question<Boolean> {
 
@@ -17,9 +21,9 @@ public class ValidateText implements Question<Boolean> {
 
     @Override
     public Boolean answeredBy(Actor actor) {
+        WaitUntil.the(element, isVisible()).
+                forNoMoreThan(10).seconds();
         String textoElemento = Text.of(element).answeredBy(actor);
-        System.out.println("Texto Elemento : " + textoElemento);
-        System.out.println("Texto Esperado  : " + text);
         return textoElemento.equals(text);
     }
     public static ValidateText ofElement(Target element, String text) {

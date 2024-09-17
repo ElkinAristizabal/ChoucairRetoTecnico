@@ -17,6 +17,7 @@ public class AddEmployeeUI {
     public static final Target INPUT_PASSWORD = Target.the("Password text box").located(By.xpath("(//input[@autocomplete='off' and @type='password'])[1]"));
     public static final Target INPUT_CONFIRM_PASSWORD = Target.the("Confirm password text box").located(By.xpath("(//input[@autocomplete='off' and @type='password'])[2]"));
     public static final Target BUTTON_SAVE = Target.the("Submit Button").located(By.cssSelector("button[type='submit']"));
+    public static final Target ADVISE_SUCCEES = Target.the("Success advice").located(By.cssSelector("p[class='oxd-text oxd-text--p oxd-text--toast-title oxd-toast-content-text']"));
 
 
 }
