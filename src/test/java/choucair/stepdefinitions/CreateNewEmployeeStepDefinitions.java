@@ -54,14 +54,14 @@ public class CreateNewEmployeeStepDefinitions {
     }
 
     @And("^register a new employee$")
-    public void pasoTres() {
+    public void registerANewEmployee() {
         actor.attemptsTo(
                 RegisterNewUser.inApp()
         );
     }
 
     @Then( "^could see the new employee register$")
-    public void pasoCuatro () {
+    public void couldSeeTheNewEmployeeRegister () {
         actor.should(
                 seeThat(
                         ValidateText.ofElement(INPUT_EMPLOYEE_NAME_VALIDATE, "Choucair Test")
