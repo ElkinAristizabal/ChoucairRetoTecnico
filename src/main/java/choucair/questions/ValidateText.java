@@ -6,7 +6,6 @@ import net.serenitybdd.screenplay.questions.Text;
 import net.serenitybdd.screenplay.targets.Target;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
-import static choucair.userinterfaces.EmplyeeListUI.INPUT_EMPLOYEE_NAME;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
 public class ValidateText implements Question<Boolean> {

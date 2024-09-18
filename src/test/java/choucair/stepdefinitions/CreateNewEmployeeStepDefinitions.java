@@ -4,6 +4,7 @@ import choucair.questions.ElementVisible;
 import choucair.questions.ValidateText;
 import choucair.tasks.DeleteUserCreated;
 import choucair.tasks.RegisterNewUser;
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.*;
@@ -15,6 +16,10 @@ import org.openqa.selenium.WebDriver;
 import choucair.tasks.Login;
 import choucair.tasks.NavigateToWebsite;
 
+import java.util.List;
+import java.util.Map;
+
+import static choucair.userinterfaces.AddEmployeeUI.ADVISE_SUCCESS;
 import static choucair.userinterfaces.EmplyeeListUI.*;
 import static choucair.userinterfaces.HomePageUI.PHOTO_USER;
 import static org.hamcrest.Matchers.equalTo;
@@ -35,7 +40,7 @@ public class CreateNewEmployeeStepDefinitions {
     }
 
     @Given("^user navegate to web site login page$")
-    public void pasoUno() {
+    public void userNavegateToWebSiteLoginPage() {
         actor.wasAbleTo(
                 NavigateToWebsite.withLink()
         );
@@ -72,6 +77,11 @@ public class CreateNewEmployeeStepDefinitions {
     @After("@createNewEmployee")
     public void deleteUserCreated(){
         actor.attemptsTo(DeleteUserCreated.inApp());
+        actor.should(
+                seeThat(
+                        ElementVisible.of(ADVISE_SUCCESS), equalTo(true)
+                )
+        );
     }
 
 

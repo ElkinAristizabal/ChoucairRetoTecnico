@@ -7,7 +7,6 @@ import net.serenitybdd.screenplay.actions.Clear;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.waits.WaitUntil;
-
 import static choucair.userinterfaces.AddEmployeeUI.*;
 import static choucair.userinterfaces.EmplyeeListUI.*;
 import static choucair.userinterfaces.HomePageUI.BUTTON_PIM;
@@ -32,13 +31,11 @@ public class RegisterNewUser implements Task {
                 Enter.theValue("choutest123").into(INPUT_PASSWORD),
                 Enter.theValue("choutest123").into(INPUT_CONFIRM_PASSWORD),
                 Click.on(BUTTON_SAVE),
-                WaitUntil.the(ADVISE_SUCCEES, isVisible()).
+                WaitUntil.the(ADVISE_SUCCESS, isVisible()).
                         forNoMoreThan(10).seconds().then(Click.on(BUTTON_EMPLOYEE_LIST)),
                 WaitUntil.the(INPUT_EMPLOYEE_NAME, isVisible()).
                         forNoMoreThan(10).seconds().then(Enter.theValue("Choucair").into(INPUT_EMPLOYEE_NAME)),
                 Click.on(BUTTON_SUBMIT)
-
-
         );
     }
 
